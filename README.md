@@ -1,4 +1,4 @@
-![Logo](admin/todoist.png)
+![Logo](admin/todoist_logo.png)
 # ioBroker.todoist
 
 ## Beschreibung / Description
