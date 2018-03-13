@@ -110,7 +110,13 @@
         
         onChange(false);
     }
-    
+
+    function save(callback) {
+        callback({
+            noLogs: $('#noLogs').prop('checked'),
+            apikey: $('#apikey').val(),
+        });
+    }
 </script>
 
 <div id="adapter-container">
