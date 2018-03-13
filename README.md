@@ -21,6 +21,7 @@ Pro To-Do-Liste wird ein eigener Datenpunkt mit html Code zur Einbindung in VIS 
 
 ## VIS Nutzung
 Die jeweils erstellten Datenpunkte können in VIS mit dem basic String (unescaped) Widget eingebunden werden. Einfach die den Datenpunkt der jeweiligen Liste bei ObjektID in den Widgeteinstellungen angeben.
+![alt text](img/todoistVIS.png "VIS")
 ```
 Mit Hilfe von CSS kann die Linkfarbe und die Link-Textdecoration geändert werden. Ein Beispiel:
 ```
