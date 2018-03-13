@@ -13,7 +13,7 @@
                 "en": "Initial Release",
                 "de": "Initial Release",
                 "ru": "Initial Release"
-            },
+            }
 
         },
         "mode": "schedule",
@@ -44,5 +44,15 @@
     },
     "native": {},
     "objects": [],
-    "instanceObjects": []
+    "instanceObjects": [
+        {
+            "_id": "Lists",
+            "type": "channel",
+            "common": {
+                "role": "",
+                "name": "To-Do Lists"
+            },
+            "native": {}
+        }
+	]
 }

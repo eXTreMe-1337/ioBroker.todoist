@@ -51,7 +51,7 @@ function readData() {
             projects_name = projects_name.replace(/\"/g, ""); //entfernt die Anfuehrungszeichen aus dem quellstring
             ToDoListen[ToDoListen.length] = projects;
             ToDoListen_names[ToDoListen_names.length] = projects_name;
-            adapter.createState(ToDoListen_names[k], {def: 'false',type: 'string',role: 'html', name: ToDoListen_names[k]+' HTML String'});
+            adapter.createState(Lists.ToDoListen_names[k], {def: 'false',type: 'string',role: 'html', name: ToDoListen_names[k]+' HTML String'});
             adapter.log("Datenpunkt "+ToDoListen_names[k]+" erstellt.", "info");
         }
     
@@ -61,7 +61,7 @@ function readData() {
             var json = JSON.parse(body);
             for (j = 0; j < ToDoListen.length; j++) {
                 var HTMLstring = "";
-                adapter.setState(instanz + pfad + ToDoListen_names[j], "");
+                adapter.setState(Lists.ToDoListen_names[j], "");
                 for (i = 0; i < json.length; i++) {
                     var Liste = parseInt(json[i].project_id);
                     var content = JSON.stringify(json[i].content);
@@ -73,7 +73,7 @@ function readData() {
                     {
                         adapter.log ("["+content+"] in "+ToDoListen_names[j]+" gefunden", "info");
                         HTMLstring = HTMLstring+"<tr><td><li><a href=\""+taskurl+"\" target=\"_blank\">"+content+"</a></li></td></tr>";
-                        adapter.setState(instanz + pfad + ToDoListen_names[j], "<table><ul>"+HTMLstring+"</ul></table>");
+                        adapter.setState(Lists.ToDoListen_names[j], "<table><ul>"+HTMLstring+"</ul></table>");
                     }
                 }
             }
