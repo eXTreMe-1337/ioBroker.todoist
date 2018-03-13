@@ -49,11 +49,12 @@ function readData() {
         for (k = 0; k < projects_json.length; k++) {
             var projects = parseInt(projects_json[k].id);
             var projects_name = JSON.stringify(projects_json[k].name);
-            projects_name = projects_name.replace(/\"/g, ""); //entfernt die Anfuehrungszeichen aus dem quellstring
+            projects_name = projects_name.replace(/\"/g, ""); //entfernt die Anfuehrungszeichen aus dem Quellstring
             ToDoListen[ToDoListen.length] = projects;
             ToDoListen_names[ToDoListen_names.length] = projects_name;
-            adapter.createState('Lists.'+ToDoListen_names[k], {def: 'false',type: 'string',role: 'html', name: ToDoListen_names[k]+' HTML String'});
-            adapter.log("Datenpunkt "+ToDoListen_names[k]+" erstellt.", "info");
+			var Listenname = ToDoListen_names[k]
+            adapter.createState('Lists.'+Listenname, {def: 'false',type: 'string',role: 'html',name: Listenname+' HTML String'});
+            adapter.log("Datenpunkt "+Listenname+" erstellt.", "info");
         }
     
     });
@@ -68,7 +69,7 @@ function readData() {
                 for (i = 0; i < json.length; i++) {
                     var Liste = parseInt(json[i].project_id);
                     var content = JSON.stringify(json[i].content);
-                    content = content.replace(/\"/g, ""); //entfernt die Anfuehrungszeichen aus dem quellstring
+                    content = content.replace(/\"/g, ""); //entfernt die Anfuehrungszeichen aus dem Quellstring
                     content = content[0].toUpperCase() + content.substring(1); // Macht den ersten Buchstaben des strings zu einem Grossbuchstaben
                     var taskurl = JSON.stringify(json[i].url);
                     taskurl = taskurl.replace(/\"/g, "");
