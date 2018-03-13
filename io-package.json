@@ -17,7 +17,7 @@
 
         },
         "mode": "schedule",
-        "schedule": "*/5 * * * *",
+        "schedule": "* * * * *",
         "platform": "javascript/Node.js",
         "loglevel": "info",
         "keywords": [
