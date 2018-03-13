@@ -1,0 +1,46 @@
+{
+  "name": "iobroker.todoist",
+  "description": "todoist To-Do-List",
+  "version": "1.0.0",
+  "author": "eXTreMe",
+  "contributors": [
+    "eXTreMe"
+  ],
+  "homepage": "https://github.com/eXTreMe-1337/ioBroker.todoist",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eXTreMe-1337/ioBroker.todoist"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ioBroker",
+    "to do list",
+	"to-do list",
+    "shoppinglist",
+    "todoist",
+    "home automation"
+  ],
+  "dependencies": {
+    "request": "^2.72.0",
+    "xml2js": "^0.2"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-replace": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-jscs": "^3.0.1",
+    "grunt-http": "^2.2.0",
+    "mocha": "^3.5.3",
+    "chai": "^4.1.2"
+  },
+  "bugs": {
+    "url": "https://github.com/Pix---/ioBroker.todoist/issues"
+  },
+  "main": "main.js",
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha"
+  },
+  "maintainers": [
+    "eXTreMe"
+  ]
+}

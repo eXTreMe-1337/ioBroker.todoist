@@ -1,0 +1,50 @@
+{
+    "common": {
+        "name": "todoist",
+        "title": "todoist To-Do-List",
+        "desc": {
+            "en": "todoist To-Do-List",
+            "de": "todoist To-Do-List",
+            "ru": "todoist To-Do-List"
+        },
+        "version": "1.0.0",
+        "news": {
+            "1.0.0": {
+                "en": "Initial Release",
+                "de": "Initial Release",
+                "ru": "Initial Release"
+            },
+
+        },
+        "mode": "schedule",
+        "schedule": "*/5 * * * *",
+        "platform": "javascript/Node.js",
+        "loglevel": "info",
+        "keywords": [
+            "todoist",
+            "to-do",
+            "to-do list",
+            "to do",
+            "to do list",
+        ],
+        "main": "main.js",
+        "authors": [
+            "eXTreMe"
+        ],
+        "license": "MIT",
+        "readme": "",
+        "icon": "todoist.png",
+        "extIcon": "",
+        "allowInit": true,
+        "type": "misc-data",
+        "config": {
+            "width": 850,
+            "height": 650,
+            "minWidth": 650,
+            "minHeight": 400
+        }
+    },
+    "native": {},
+    "objects": [],
+    "instanceObjects": []
+}

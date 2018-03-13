@@ -1,0 +1,144 @@
+<html>
+
+<!-- these 4 files always have to be included -->
+<link rel="stylesheet" type="text/css" href="../../lib/css/themes/jquery-ui/redmond/jquery-ui.min.css"/>
+<link rel="stylesheet" type="text/css" href="../../lib/css/jquery.multiselect-1.13.css"/>
+
+<!-- für die Tabelle 
+<link rel="stylesheet" type="text/css" href="../../lib/css/jqGrid/ui.jqgrid-4.5.4.css"/>
+-->
+<script type="text/javascript" src="../../lib/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../../socket.io/socket.io.js"></script>
+<script type="text/javascript" src="../../lib/js/jquery-ui-1.10.3.full.min.js"></script>
+
+<!-- Die nächsten beiden für die Tabelle 
+<script type="text/javascript" src="../../lib/js/jqGrid/jquery.jqGrid-4.5.4.min.js"></script>
+<script type="text/javascript" src="../../lib/js/jqGrid/grid.locale-all.js"></script>
+-->
+<!-- these two file always have to be included -->
+<link rel="stylesheet" type="text/css" href="../../css/adapter.css"/>
+<script type="text/javascript" src="../../js/translate.js"></script>
+<script type="text/javascript" src="../../js/adapter-settings.js"></script>
+
+<style>
+    .config {
+        font-size: smaller;	
+    }
+    img.settings_logo {
+        width: 100px;
+        height: 100px;
+    }
+    .headline {
+    	padding-top: 20px;
+    	padding-left: 10px;
+    }
+    .table_header {
+        background-color: blue;
+        color: white;
+    }
+    th {
+        text-align: left;
+    }
+    .ip {
+        width: 150px;
+        text-align: right;
+    }
+    .api_label {
+        font-size: 120%;
+    }
+    .api_key_style {
+        font-size: 180%;
+        font-family: 'Courier';
+        font-weight: bold;
+    }
+    .station_desc {
+        font-weight: bold;
+        margin-top: 1em;
+    }
+    .station_id {
+        font-size: 150%;
+        font-family: 'Courier';
+        font-weight: bold;
+    }
+    .station_name {
+        font-size: 150%;
+    }
+    
+</style>
+<!-- you have to define 2 functions in the global scope: -->
+<script type="text/javascript">
+	systemDictionary = {
+            "todoist Adapter settings": {
+                "en": "todoist Adapter settings",
+                "de": "todoist Adapter Einstellungen",
+            },
+            "todoist API": {
+                "en": "todoist api key:",
+                "de": "todoist API-Token:",
+            },
+            "API-Key": {
+                "en": "api key",
+                "de": "API-Token",
+            },
+            "Sie erhalten den API-Tokenin den Einstellungen auf todoist.com unter dem Men&uuml;punkt Integrationen": {
+                "en": "Input your personal API-Key from <a href='https://todoist.com' target='_blank' alt='register API' >todoist.com</a>",
+                "de": "Sie erhalten den API-Token auf der Seite <a href='https://todoist.com' target='_blank' alt='register API' >todoist.com</a>",
+            },
+            "kein Log": {
+                "en": "Minimize log events",
+                "de": "Log Ausgaben reduzieren",
+                "ru": "Minimize log events (translate)"
+            },
+            "Logdaten minimieren": {
+                "en": "Logging data",
+                "de": "Log Daten",
+                "ru": "Log Daten (übersetzen)"
+            },
+            "Logdaten ...": {
+                "en": "Every run creates log entries. Witing log events can be opted out here.",
+                "de": "Bei jeder Aktualisierung werden Log-Ausgaben geschrieben. Um die Zahl der Schreibzugriffe zu minimieren, kann hier durch einen Haken die Ausgabe reduziert werden.",
+                "ru": "Every run creates log entries. Witing log events can be opted out here. (translate)"
+            }
+	};
+   
+    
+    function load(settings, onChange) {
+        $('#apikey').val(settings.apikey).change(onChange);
+               
+        if (settings.noLogs === undefined) settings.noLogs = true;
+        $('#noLogs').prop('checked', settings.noLogs).change(onChange);
+        
+        onChange(false);
+    }
+    
+</script>
+
+<div id="adapter-container">
+    <table style="width: 100%">
+    	<tr>
+            <td><img class="settings_logo" src="todoist_logo.png"></td>
+            <td class="headline"><h3 class="translate">todoist Adapter settings</h3></td>
+        </tr>
+    </table>
+    <h4 class="translate" style="width: calc(100% - 10px)">API-Key</h4>
+    <p class="translate">Sie erhalten den API-Token auf todoist.com in den Einstellungen unter Integration.</p>
+    <table class="config" style="width: calc(100% - 5px)">
+        <tr>
+            <th class="translate">todoist API</th>
+        </tr>
+        <tr>
+            <td><input type="text" id="apikey" class="value api_key_style" size="40"/></td>
+        </tr>    
+    </table>
+    
+    
+    <h4 class="translate" style="margin-top: 20px; width: calc(100% - 10px)">Logdaten minimieren</h4>
+    <p class="translate">Logdaten ...</p>
+    <table class="config" style="width: calc(100% - 5px)">
+        <tr>
+            <label for="noLogs" class="translate">kein Log</label> <input class="value" type="checkbox" id="noLogs"/>
+        </tr>
+    </table>
+    
+</div>
+</html>
