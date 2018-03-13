@@ -1,11 +1,11 @@
 {
     "common": {
         "name": "todoist",
-        "title": "todoist To-Do-List",
+        "title": "todoist.com To-Do-List Adapter for VIS",
         "desc": {
-            "en": "todoist To-Do-List",
-            "de": "todoist To-Do-List",
-            "ru": "todoist To-Do-List"
+            "en": "todoist.com To-Do-List Adapter for VIS",
+            "de": "todoist.com To-Do-List Adapter for VIS",
+            "ru": "todoist.com To-Do-List Adapter for VIS"
         },
         "version": "1.0.0",
         "news": {
