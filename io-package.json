@@ -22,8 +22,6 @@
         "loglevel": "info",
         "keywords": [
             "todoist",
-            "to-do",
-            "to-do list",
             "to do",
             "to do list"
         ],
@@ -32,9 +30,9 @@
             "eXTreMe"
         ],
         "license": "MIT",
-        "readme": "",
-        "icon": "todoist.png",
-        "extIcon": "",
+        "readme": "https://github.com/eXTreMe-1337/ioBroker.todoist/blob/master/README.md",
+        "icon": "todoist_logo.png",
+        "extIcon": "https://raw.githubusercontent.com/eXTreMe-1337/ioBroker.todoist/master/admin/todoist_logo.png",
         "allowInit": true,
         "type": "misc-data",
         "config": {
