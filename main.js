@@ -45,6 +45,7 @@ function readData() {
     var ToDoListen_names = []; // wird mit Namen der TO-DO Listen befuellt
     request(APIprojectsURL, function (error, response, body) {
         var projects_json = JSON.parse(body);
+		var k = 0;
         for (k = 0; k < projects_json.length; k++) {
             var projects = parseInt(projects_json[k].id);
             var projects_name = JSON.stringify(projects_json[k].name);
@@ -59,9 +60,11 @@ function readData() {
     setTimeout(function() {
         request(APItaskURL, function (error, response, body) {
             var json = JSON.parse(body);
+			var j = 0;
             for (j = 0; j < ToDoListen.length; j++) {
                 var HTMLstring = "";
                 adapter.setState(Lists.ToDoListen_names[j], "");
+				var i = 0;
                 for (i = 0; i < json.length; i++) {
                     var Liste = parseInt(json[i].project_id);
                     var content = JSON.stringify(json[i].content);
@@ -105,7 +108,7 @@ function readSettings() {
 function main() {
     readSettings();
     setTimeout(function () {
-        writeLog("force terminating adapter after 1 minute", "debug");
+        writeLog("force terminating adapter after 30 seconds", "debug");
         adapter.stop();
-    }, 60000);
+    }, 30000);
 }
