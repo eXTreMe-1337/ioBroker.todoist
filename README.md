@@ -16,7 +16,7 @@ Der Adapter startet alle 60sec.
 
 ##  Datenpunkte / Datapoints
 Pro To-Do-Liste wird ein eigener Datenpunkt mit html Code zur Einbindung in VIS mit Hilfe des basic String (unescaped) Widgets angelegt.
-![alt text](todoscriptobjects.png "Datenpunkte")
+![alt text](img/todoscriptobjects.png "Datenpunkte")
 
 
 ## VIS Nutzung
