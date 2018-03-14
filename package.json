@@ -1,7 +1,7 @@
 {
   "name": "iobroker.todoist",
   "description": "todoist To-Do-List",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "author": "eXTreMe",
   "contributors": [
     "eXTreMe"
@@ -21,20 +21,15 @@
     "home automation"
   ],
   "dependencies": {
-    "request": "^2.72.0",
-    "xml2js": "^0.2"
+    "request": "^2.83.0"
   },
   "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-replace": "^1.0.1",
-    "grunt-contrib-jshint": "^1.1.0",
-    "grunt-jscs": "^3.0.1",
-    "grunt-http": "^2.2.0",
-    "mocha": "^3.5.3",
+    "gulp": "^3.9.1",
+    "mocha": "^5.0.1",
     "chai": "^4.1.2"
   },
   "bugs": {
-    "url": "https://github.com/Pix---/ioBroker.todoist/issues"
+    "url": "https://github.com/eXTreMe-1337/ioBroker.todoist/issues"
   },
   "main": "main.js",
   "scripts": {
