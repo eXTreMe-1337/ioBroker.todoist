@@ -17,6 +17,8 @@
 ### API key
 The necessary API token can be found on https://todoist.com in the settings under the item Integrations The 40-digit string must be entered here.
 
+[Direct link](https://todoist.com/Users/viewPrefs?page=integrations)
+
 ### minimize log
 In order to minimize write access in the log (for example to sensitive SD cards), a check mark can be set.
 
@@ -66,6 +68,8 @@ a:active {
 ## Einstellungen
 ### API-Key
 Den notwendigen API Token findet man auf https://todoist.com in den Einstellungen unter dem Punkt Integrationen Die 40stellige Zeichenkette muss hier eingetragen werden.
+
+[Direktlink](https://todoist.com/Users/viewPrefs?page=integrations)
 
 ### Log minimieren
 Um Schreibzugriffe im Log (z.B. auf empfindliche SD-Karten) zu minimieren, kann ein Haken gesetzt werden.
