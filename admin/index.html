@@ -70,31 +70,31 @@
 	systemDictionary = {
             "todoist Adapter settings": {
                 "en": "todoist Adapter settings",
-                "de": "todoist Adapter Einstellungen",
+                "de": "todoist Adapter Einstellungen"
             },
             "todoist API": {
                 "en": "todoist api key:",
-                "de": "todoist API-Token:",
+                "de": "todoist API-Token:"
             },
             "API-Key": {
                 "en": "api key",
-                "de": "API-Token",
+                "de": "API-Token"
             },
-            "Sie erhalten den API-Tokenin den Einstellungen auf todoist.com unter dem Men&uuml;punkt Integrationen": {
+            "You get the API token on todoist.com in the settings under Integration.": {
                 "en": "Input your personal API-Key from <a href='https://todoist.com' target='_blank' alt='register API' >todoist.com</a>",
-                "de": "Sie erhalten den API-Token auf der Seite <a href='https://todoist.com' target='_blank' alt='register API' >todoist.com</a>",
+                "de": "Sie erhalten den API-Token auf der Seite <a href='https://todoist.com' target='_blank' alt='register API' >todoist.com</a>"
             },
-            "kein Log": {
+            "Minimize log events": {
                 "en": "Minimize log events",
                 "de": "Log Ausgaben reduzieren",
                 "ru": "Minimize log events (translate)"
             },
-            "Logdaten minimieren": {
+            "Logging data": {
                 "en": "Logging data",
                 "de": "Log Daten",
                 "ru": "Log Daten (übersetzen)"
             },
-            "Logdaten ...": {
+            "Every run creates log entries. Witing log events can be opted out here.": {
                 "en": "Every run creates log entries. Witing log events can be opted out here.",
                 "de": "Bei jeder Aktualisierung werden Log-Ausgaben geschrieben. Um die Zahl der Schreibzugriffe zu minimieren, kann hier durch einen Haken die Ausgabe reduziert werden.",
                 "ru": "Every run creates log entries. Witing log events can be opted out here. (translate)"
@@ -103,10 +103,11 @@
    
     
     function load(settings, onChange) {
-        $('#apikey').val(settings.apikey).change(onChange);
+        $('#apikey').val(settings.apikey).on('change', onChange);
                
         if (settings.noLogs === undefined) settings.noLogs = true;
-        $('#noLogs').prop('checked', settings.noLogs).change(onChange);
+
+        $('#noLogs').prop('checked', settings.noLogs).on('change', onChange);
         
         onChange(false);
     }
@@ -114,7 +115,7 @@
     function save(callback) {
         callback({
             noLogs: $('#noLogs').prop('checked'),
-            apikey: $('#apikey').val(),
+            apikey: $('#apikey').val()
         });
     }
 </script>
@@ -122,12 +123,12 @@
 <div id="adapter-container">
     <table style="width: 100%">
     	<tr>
-            <td><img class="settings_logo" src="todoist_logo.png"></td>
+            <td><img class="settings_logo" src="todoist.png"></td>
             <td class="headline"><h3 class="translate">todoist Adapter settings</h3></td>
         </tr>
     </table>
     <h4 class="translate" style="width: calc(100% - 10px)">API-Key</h4>
-    <p class="translate">Sie erhalten den API-Token auf todoist.com in den Einstellungen unter Integration.</p>
+    <p class="translate">You get the API token on todoist.com in the settings under Integration.</p>
     <table class="config" style="width: calc(100% - 5px)">
         <tr>
             <th class="translate">todoist API</th>
@@ -138,11 +139,12 @@
     </table>
     
     
-    <h4 class="translate" style="margin-top: 20px; width: calc(100% - 10px)">Logdaten minimieren</h4>
-    <p class="translate">Logdaten ...</p>
+    <h4 class="translate" style="margin-top: 20px; width: calc(100% - 10px)">Logging data</h4>
+    <p class="translate">Every run creates log entries. Witing log events can be opted out here.</p>
     <table class="config" style="width: calc(100% - 5px)">
         <tr>
-            <label for="noLogs" class="translate">kein Log</label> <input class="value" type="checkbox" id="noLogs"/>
+            <label for="noLogs" class="translate">Minimize log events</label>
+            <input class="value" type="checkbox" id="noLogs"/>
         </tr>
     </table>
     

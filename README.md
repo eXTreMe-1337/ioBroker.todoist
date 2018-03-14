@@ -1,20 +1,83 @@
-![Logo](admin/todoist_logo.png)
+![Logo](admin/todoist.png)
 # ioBroker.todoist
+=========================
 
-## Beschreibung / Description
+[![NPM version](http://img.shields.io/npm/v/iobroker.todoist.svg)](https://www.npmjs.com/package/iobroker.todoist)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.todoist.svg)](https://www.npmjs.com/package/iobroker.todoist)
+[![Tests](http://img.shields.io/travis/eXTreMe-1337/ioBroker.todoist/master.svg)](https://travis-ci.org/eXTreMe-1337/ioBroker.todoist)
+
+[![NPM](https://nodei.co/npm/iobroker.todoist.png?downloads=true)](https://nodei.co/npm/iobroker.todoist/)
+
+[Deutsch](#beschreibung)
+
+## Description
+:uk: This adapter creates data points with HTML code for integrating todoist to-do lists into VIS using the basic string (unescaped) widget. A separate data point is created per list.
+
+## settings
+### API key
+The necessary API token can be found on https://todoist.com in the settings under the item Integrations The 40-digit string must be entered here.
+
+[Direct link](https://todoist.com/Users/viewPrefs?page=integrations)
+
+### minimize log
+In order to minimize write access in the log (for example to sensitive SD cards), a check mark can be set.
+
+## Activation
+The adapter starts every 60sec.
+
+## data points
+A separate data point with html code for integration into VIS is created per to-do list with the aid of the basic string (unescaped) widget.
+![alt text](img/todoscriptobjects.png "Datapoints")
+
+
+## VIS usage
+The respective created data points can be integrated in VIS with the basic string (unescaped) widget. Simply specify the data point of the respective list in ObjectID in the widget settings.
+![alt text](img/todoistVIS.png "VIS")
+
+With the help of CSS, the link color and the link text decoration can be changed. An example:
+
+```
+ /* unvisited link */
+a:link {
+    color: white;
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+/* selected link */
+a:active {
+    color: white;
+    text-decoration: none;
+}
+```
+
+## Beschreibung
 :de: Dieser Adapter erstellt Datenpunkte mit HTML Code zur Einbindung der To-Do-Listen von todoist.com in VIS mit Hilfe des basic String (unescaped) Widgets. Pro Liste wird ein eigenener Datenpunkt erstellt.
 
-## Einstellungen / Configuration
+## Einstellungen
 ### API-Key
 Den notwendigen API Token findet man auf https://todoist.com in den Einstellungen unter dem Punkt Integrationen Die 40stellige Zeichenkette muss hier eingetragen werden.
+
+[Direktlink](https://todoist.com/Users/viewPrefs?page=integrations)
 
 ### Log minimieren
 Um Schreibzugriffe im Log (z.B. auf empfindliche SD-Karten) zu minimieren, kann ein Haken gesetzt werden.
 
-## Aktivierung / Schedule
+## Aktivierung
 Der Adapter startet alle 60sec. 
 
-##  Datenpunkte / Datapoints
+## Datenpunkte
 Pro To-Do-Liste wird ein eigener Datenpunkt mit html Code zur Einbindung in VIS mit Hilfe des basic String (unescaped) Widgets angelegt.
 ![alt text](img/todoscriptobjects.png "Datenpunkte")
 
@@ -22,10 +85,10 @@ Pro To-Do-Liste wird ein eigener Datenpunkt mit html Code zur Einbindung in VIS 
 ## VIS Nutzung
 Die jeweils erstellten Datenpunkte können in VIS mit dem basic String (unescaped) Widget eingebunden werden. Einfach die den Datenpunkt der jeweiligen Liste bei ObjektID in den Widgeteinstellungen angeben.
 ![alt text](img/todoistVIS.png "VIS")
-```
-Mit Hilfe von CSS kann die Linkfarbe und die Link-Textdecoration geändert werden. Ein Beispiel:
-```
 
+Mit Hilfe von CSS kann die Linkfarbe und die Link-Textdecoration geändert werden. Ein Beispiel:
+
+```
  /* unvisited link */
 a:link {
     color: white;
@@ -51,9 +114,8 @@ a:active {
 } 
 ```
 
-
 ## Changelog
-### 1.0.0 (2018-03-13)
+### 0.1.0 (2018-03-13)
 * (eXTreMe) Adapter created (Vorlage war der Tankerkönig Adapter von pix)
 
 ## License

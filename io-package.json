@@ -1,25 +1,37 @@
 {
     "common": {
         "name": "todoist",
-        "title": "todoist.com To-Do-List Adapter for VIS",
+        "title": "Todoist.com",
         "desc": {
-            "en": "todoist.com To-Do-List Adapter for VIS",
-            "de": "todoist.com To-Do-List Adapter for VIS",
-            "ru": "todoist.com To-Do-List Adapter for VIS"
+            "en": "Allows to read tasks from Todoist.com service",
+            "de": "Ermöglicht das Lesen von Aufgaben vom Todoist.com-Dienst",
+            "ru": "Позволяет читать задания из службы Todoist.com",
+            "pt": "Permite ler tarefas do serviço Todoist.com",
+            "nl": "Maakt het mogelijk om taken van de Todoist.com-service te lezen",
+            "fr": "Permet de lire les tâches du service Todoist.com",
+            "it": "Consente di leggere le attività dal servizio Todoist.com",
+            "es": "Permite leer tareas del servicio de Todoist.com",
+            "pl": "Umożliwia odczyt zadań z serwisu Todoist.com"
         },
-        "version": "1.0.0",
+        "version": "0.1.0",
         "news": {
-            "1.0.0": {
-                "en": "Initial Release",
-                "de": "Initial Release",
-                "ru": "Initial Release"
+            "0.1.0": {
+                "en": "Initial version",
+                "de": "Erste Version",
+                "ru": "Первоначальная версия",
+                "pt": "Versão inicial",
+                "nl": "Oorspronkelijke versie",
+                "fr": "Version initiale",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Początkowa wersja"
             }
-
         },
         "mode": "schedule",
         "schedule": "* * * * *",
         "platform": "javascript/Node.js",
         "loglevel": "info",
+        "materialize": true,
         "keywords": [
             "todoist",
             "to do",
@@ -32,15 +44,9 @@
         "license": "MIT",
         "readme": "https://github.com/eXTreMe-1337/ioBroker.todoist/blob/master/README.md",
         "icon": "todoist_logo.png",
-        "extIcon": "https://raw.githubusercontent.com/eXTreMe-1337/ioBroker.todoist/master/admin/todoist_logo.png",
+        "extIcon": "https://raw.githubusercontent.com/eXTreMe-1337/ioBroker.todoist/master/admin/todoist.png",
         "allowInit": true,
-        "type": "misc-data",
-        "config": {
-            "width": 850,
-            "height": 650,
-            "minWidth": 650,
-            "minHeight": 400
-        }
+        "type": "misc-data"
     },
     "native": {},
     "objects": [],
