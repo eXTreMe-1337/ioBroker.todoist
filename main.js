@@ -40,48 +40,55 @@ function writeLog(logtext,logtype) { // wenn optinNoLog TRUE keine Ausgabe bei i
 function readData() {
 	var APIprojectsURL = "https://beta.todoist.com/API/v8/projects?token="+adapter.config.apikey;
 	var APItaskURL = "https://beta.todoist.com/API/v8/tasks?token="+adapter.config.apikey;
-  	var request = require("request");
     var ToDoListen = []; // wird mit IDs der TO-DO Listen befuellt
     var ToDoListen_names = []; // wird mit Namen der TO-DO Listen befuellt
     request(APIprojectsURL, function (error, response, body) {
-        var projects_json = JSON.parse(body);
-		var k = 0;
-        for (k = 0; k < projects_json.length; k++) {
-            var projects = parseInt(projects_json[k].id);
-            var projects_name = JSON.stringify(projects_json[k].name);
-            projects_name = projects_name.replace(/\"/g, ""); //entfernt die Anfuehrungszeichen aus dem Quellstring
-            ToDoListen[ToDoListen.length] = projects;
-            ToDoListen_names[ToDoListen_names.length] = projects_name;
-			var Listenname = ToDoListen_names[k]
-            adapter.createState('Lists.'+Listenname, {def: 'false',type: 'string',role: 'html',name: Listenname+' HTML String'});
-            adapter.log("Datenpunkt "+Listenname+" erstellt.", "info");
-        }
+		try {
+			var projects_json = JSON.parse(body);
+			var k = 0;
+			for (k = 0; k < projects_json.length; k++) {
+				var projects = parseInt(projects_json[k].id);
+				var projects_name = JSON.stringify(projects_json[k].name);
+				projects_name = projects_name.replace(/\"/g, ""); //entfernt die Anfuehrungszeichen aus dem Quellstring
+				ToDoListen[ToDoListen.length] = projects;
+				ToDoListen_names[ToDoListen_names.length] = projects_name;
+				var Listenname = ToDoListen_names[k]
+				adapter.setObjectNotExists('Lists.'+Listenname, {def: 'false',type: 'string',role: 'html',name: Listenname+' HTML String'});
+				writeLog("Datenpunkt "+Listenname+" erstellt.", "info");
+			}
+		catch(err) {
+			writeLog("Fehler beim Einlesen der Listen: "+err, "error");
+		}
     
     });
     setTimeout(function() {
         request(APItaskURL, function (error, response, body) {
-            var json = JSON.parse(body);
-			var j = 0;
-            for (j = 0; j < ToDoListen.length; j++) {
-                var HTMLstring = "";
-                adapter.setState('Lists.'+ToDoListen_names[j], "");
-				var i = 0;
-                for (i = 0; i < json.length; i++) {
-                    var Liste = parseInt(json[i].project_id);
-                    var content = JSON.stringify(json[i].content);
-                    content = content.replace(/\"/g, ""); //entfernt die Anfuehrungszeichen aus dem Quellstring
-                    content = content[0].toUpperCase() + content.substring(1); // Macht den ersten Buchstaben des strings zu einem Grossbuchstaben
-                    var taskurl = JSON.stringify(json[i].url);
-                    taskurl = taskurl.replace(/\"/g, "");
-                    if (Liste == ToDoListen[j])
-                    {
-                        adapter.log ("["+content+"] in "+ToDoListen_names[j]+" gefunden", "info");
-                        HTMLstring = HTMLstring+"<tr><td><li><a href=\""+taskurl+"\" target=\"_blank\">"+content+"</a></li></td></tr>";
-                        adapter.setState('Lists.'+ToDoListen_names[j], "<table><ul>"+HTMLstring+"</ul></table>");
-                    }
-                }
-            }
-    
+            try {
+				var json = JSON.parse(body);
+				var j = 0;
+				for (j = 0; j < ToDoListen.length; j++) {
+					var HTMLstring = "";
+					adapter.setState('Lists.'+ToDoListen_names[j], {ack: true, val: ""});
+					var i = 0;
+					for (i = 0; i < json.length; i++) {
+						var Liste = parseInt(json[i].project_id);
+						var content = JSON.stringify(json[i].content);
+						content = content.replace(/\"/g, ""); //entfernt die Anfuehrungszeichen aus dem Quellstring
+						content = content[0].toUpperCase() + content.substring(1); // Macht den ersten Buchstaben des strings zu einem Grossbuchstaben
+						var taskurl = JSON.stringify(json[i].url);
+						taskurl = taskurl.replace(/\"/g, "");
+						if (Liste == ToDoListen[j])
+						{
+							writeLog("["+content+"] in "+ToDoListen_names[j]+" gefunden", "info");
+							HTMLstring = HTMLstring+"<tr><td><li><a href=\""+taskurl+"\" target=\"_blank\">"+content+"</a></li></td></tr>";
+							adapter.setState('Lists.'+ToDoListen_names[j], {ack: true, val: "<table><ul>"+HTMLstring+"</ul></table>"});
+						}
+					}
+				}
+			}
+			catch(err) {
+				writeLog("Fehler beim Einlesen der Tasks: "+err, "error");
+			}
       	});
     }, 5000);
     adapter.stop();
