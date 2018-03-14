@@ -11,7 +11,7 @@
 [Deutsch](#beschreibung)
 
 ## Description
-:en: This adapter creates data points with HTML code for integrating todoist to-do lists into VIS using the basic string (unescaped) widget. A separate data point is created per list.
+:uk: This adapter creates data points with HTML code for integrating todoist to-do lists into VIS using the basic string (unescaped) widget. A separate data point is created per list.
 
 ## settings
 ### API key
