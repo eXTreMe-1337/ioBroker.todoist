@@ -56,27 +56,34 @@ function readData() {
 				adapter.setObjectNotExists('Lists.'+Listenname, {def: 'false',type: 'string',role: 'html',name: Listenname+' HTML String'});
 				writeLog("Datenpunkt "+Listenname+" erstellt.", "info");
 			}
+		}
 		catch(err) {
 			writeLog("Fehler beim Einlesen der Listen: "+err, "error");
 		}
     
     });
+	writeLog("DEBUG: 1", "debug");
     setTimeout(function() {
-        request(APItaskURL, function (error, response, body) {
-            try {
+		writeLog("DEBUG: 2", "debug");
+		request(APItaskURL, function (error, response, body) {
+			try {
+				writeLog("DEBUG: 3", "debug");
 				var json = JSON.parse(body);
 				var j = 0;
 				for (j = 0; j < ToDoListen.length; j++) {
+					writeLog("DEBUG: 4", "debug");
 					var HTMLstring = "";
-					adapter.setState('Lists.'+ToDoListen_names[j], {ack: true, val: ""});
+					adapter.setState('Lists.'+ToDoListen_names[j], {ack: true, val: "empty"});
 					var i = 0;
 					for (i = 0; i < json.length; i++) {
+						writeLog("DEBUG: 5", "debug");
 						var Liste = parseInt(json[i].project_id);
 						var content = JSON.stringify(json[i].content);
 						content = content.replace(/\"/g, ""); //entfernt die Anfuehrungszeichen aus dem Quellstring
 						content = content[0].toUpperCase() + content.substring(1); // Macht den ersten Buchstaben des strings zu einem Grossbuchstaben
 						var taskurl = JSON.stringify(json[i].url);
 						taskurl = taskurl.replace(/\"/g, "");
+						writeLog("DEBUG: content = "+content+" und Liste = "+Liste, "debug");
 						if (Liste == ToDoListen[j])
 						{
 							writeLog("["+content+"] in "+ToDoListen_names[j]+" gefunden", "info");
@@ -89,8 +96,8 @@ function readData() {
 			catch(err) {
 				writeLog("Fehler beim Einlesen der Tasks: "+err, "error");
 			}
-      	});
-    }, 5000);
+		});
+	}, 5000);
     adapter.stop();
 }
 
