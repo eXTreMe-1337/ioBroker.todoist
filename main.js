@@ -4,7 +4,7 @@
 
 'use strict';
 var utils       = require(__dirname + '/lib/utils'); // Get common adapter utils
-var adapter     = utils.adapter('todoist');
+var adapter     = new utils.Adapter('todoist');
 var optinNoLog  = false;
 
 adapter.on('ready', main);
